@@ -64,23 +64,23 @@ for coord in coords:
     while i <len(coords):
         #math.hypot(x,y) - возвращает (x^2+y^2)^(1/2)
         #добавляем расстояние от точки coord до точки coords[i] в массив расстояний arrayLen
-        arrayLen.append(math.hypot(coord[0]-coords[i][0],coord[1]-coords[i][1]))
+        length = math.hypot(coord[0]-coords[i][0],coord[1]-coords[i][1])
+        #Расстояние 0- расстояние от точки до точки
+        if (length != 0):
+            arrayLen.append(length)
         i+=1
-    #Расстояние 0- расстояние от точки до точки
-    arrayLen.sort()
-    
-    arrayLen.remove(0)
     radius = min(arrayLen)
     r2 = 2* radius
     print("Радиус = ", radius)
     countPoint2R =0
-    i=0
-    while arrayLen[i]<=r2:
-        i+=1
+    j=0
+    while arrayLen[j]<=r2:
+        j+=1
         countPoint2R +=1
-        if i==len(arrayLen):
+        if j==len(arrayLen):
             break
     print("Количество соседей = ", countPoint2R)
+input()
     
     
 
